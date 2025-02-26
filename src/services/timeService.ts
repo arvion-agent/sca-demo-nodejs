@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 
 export const getCurrentTime = (): string => {
   const now = new Date();
@@ -12,8 +12,8 @@ export const convertTimeToZone = (
   toTz: string
 ): string => {
   const parsedTime = parseISO(time);
-  const utcTime = utcToZonedTime(parsedTime, fromTz);
-  const targetTime = utcToZonedTime(utcTime, toTz);
+  const utcTime = toZonedTime(parsedTime, fromTz);
+  const targetTime = toZonedTime(utcTime, toTz);
   return format(targetTime, "yyyy-MM-dd HH:mm:ss");
 };
 
@@ -25,6 +25,6 @@ export const convertTimeToZone = (
  */
 export const getUserLocalTime = (userId: number, timezone: string): string => {
   const now = new Date();
-  const localTime = utcToZonedTime(now, timezone);
+  const localTime = toZonedTime(now, timezone);
   return format(localTime, "yyyy-MM-dd HH:mm:ss");
 };
