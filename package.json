@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/arvion-ai/sca-demo-nodejs#readme",
   "dependencies": {
-    "date-fns": "2.0.0",
-    "date-fns-tz": "2.0.0",
-    "express": "3.21.2",
+    "date-fns": "4.1.0",
+    "date-fns-tz": "3.2.0",
+    "express": "4.21.0",
     "prettier": "^3.5.2"
   },
   "devDependencies": {
