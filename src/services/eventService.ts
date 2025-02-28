@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 
 type Event = {
   name: string;
@@ -15,7 +15,7 @@ export const scheduleEvent = (
   timezone: string,
 ): Event => {
   const parsedDate = parseISO(date);
-  const localTime = utcToZonedTime(parsedDate, timezone);
+  const localTime = toZonedTime(parsedDate, timezone);
   const formattedDate = format(localTime, "yyyy-MM-dd HH:mm:ss");
 
   const event = { name, date: formattedDate, timezone };
